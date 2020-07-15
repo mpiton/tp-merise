@@ -1,0 +1,16 @@
+Les promotions de Rambo
+
+select concat(mili_prenom, " ", mili_nom) as Nom, mili_matricule as Matricule,  grade_nom as Grade, obgrade_date as "Date d'obtention" from militaire
+left join grade on grade.grade_id = militaire.grade_id
+where mili_nom like "%Rambo%";
+
+Les militaires du 132GCAT:
+
+select concat(mili_prenom, " ", mili_nom) as Nom,
+mili_matricule as Matricule, 
+caserne_ref as Caserne
+from militaire
+left join grade on grade.grade_id = militaire.grade_id
+left join caserne on caserne.caserne_id = militaire.caserne_id
+where caserne_ref like "%132GCAT%";
+
